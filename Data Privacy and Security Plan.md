@@ -23,13 +23,17 @@ This plan provides detailed actions to ensure data privacy, security, and compli
      - Deploy a **Content Security Policy (CSP)** to mitigate data exfiltration from web-based integrations.
      - Schedule penetration tests **bi-weekly** focusing on the API endpoints to ensure secure communication.
 
-### 3. **Non-Compliance with GDPR**
-   - **Risk**: Mishandling of user data or insufficient data protection measures could lead to legal issues.
-   - **Mitigation**:
-     - Store **no sensitive data on servers** unless explicitly required for functionality.
-     - Provide a **data deletion mechanism** for users, ensuring their data can be erased within **72 hours** of a request.
-     - Conduct a GDPR compliance audit **every three months**, reviewing all policies and processes.
-     - Ensure that legal documentation, such as the privacy policy and data processing agreements, is **reviewed bi-annually** by legal experts.
+### 3. Non-Compliance with GDPR
+- **Risk**: Mishandling of user data or insufficient data protection measures could lead to legal issues.
+- **Mitigation**:
+  - Store **no sensitive data on servers** unless explicitly required for functionality.
+  - Define **sensitive data levels** to categorize information based on its sensitivity:
+    - **Level 1**: Personal data (e.g., names, emails) requiring basic protection.
+    - **Level 2**: Confidential data (e.g., API keys) requiring encryption and restricted access.
+    - **Level 3**: Highly sensitive data (e.g., financial or biometric data), which should not be stored unless absolutely necessary.
+  - Provide a **data deletion mechanism** for users, ensuring their data can be erased within **72 hours** of a request.
+  - Conduct a GDPR compliance audit **every three months**, reviewing all policies and processes.
+  - Ensure that legal documentation, such as the privacy policy and data processing agreements, is **reviewed bi-annually** by legal experts.
 
 ---
 
@@ -67,6 +71,7 @@ This plan provides detailed actions to ensure data privacy, security, and compli
 2. **Data Retention Policy**:
    - No sensitive data is retained beyond **7 days** unless explicitly required.
    - Logs are purged automatically **every week** using a cron job.
+   - Include **backup-specific policies**, ensuring sensitive data in backups is encrypted and adheres to the same retention rules as live data.
 
 3. **Transparency to Users**:
    - Provide a clear privacy policy explaining data handling practices.
